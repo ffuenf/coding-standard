@@ -5,17 +5,17 @@ class Ecg_Sniffs_M2_PluginSniff implements PHP_CodeSniffer_Sniff
 
     const PARAMS_QTY = 2;
 
+    const P_BEFORE = 'before';
+    const P_AROUND = 'around';
+    const P_AFTER = 'after';
+
     protected $prefixes = array(
-        'before',
-        'after',
-        'around'
+        self::P_BEFORE,
+        self::P_AROUND,
+        self::P_AFTER
     );
 
-    protected $exclude = array(
-        /*'beforeSave',
-        'afterSave',
-        'aroundSave',*/
-    );
+    protected $exclude = array();
 
 
     public function register()
@@ -30,10 +30,15 @@ class Ecg_Sniffs_M2_PluginSniff implements PHP_CodeSniffer_Sniff
     {
         $functionName = $phpcsFile->getDeclarationName($stackPtr);
 
-        if ($this->startsWith($functionName, $this->prefixes, $this->exclude)) {
+        $plugin = $this->startsWith($functionName, $this->prefixes, $this->exclude);
+        if ($plugin) {
             $paramsQty = count($phpcsFile->getMethodParameters($stackPtr));
             if ($paramsQty < self::PARAMS_QTY) {
-                $phpcsFile->addWarning('Plugin '.$functionName.' function must have at least two parameters.', $stackPtr);
+                $phpcsFile->addWarning('Plugin '.$functionName.' function should have at least two parameters.', $stackPtr);
+            }
+
+            if ($plugin == self::P_BEFORE) {
+                return;
             }
 
             $tokens = $phpcsFile->getTokens();
@@ -62,7 +67,7 @@ class Ecg_Sniffs_M2_PluginSniff implements PHP_CodeSniffer_Sniff
         foreach ($needle as $currPref) {
             $length = strlen($currPref);
             if ($haystackLength != $length && substr($haystack, 0, $length) === $currPref) {
-                return true;
+                return $currPref;
             }
         }
         return false;
