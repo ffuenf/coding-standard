@@ -42,4 +42,7 @@
     <rule ref="Ecg.Security.LanguageConstruct.DirectOutput">
         <exclude-pattern>*.phtml</exclude-pattern>
     </rule>
+    <rule ref="Ecg.M2.ThisInTemplate">
+        <exclude-pattern>*.php</exclude-pattern>
+    </rule>
 </ruleset>
