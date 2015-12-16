@@ -10,7 +10,7 @@
             "role": "Maintainer"
         }
     ],
-    "target-dir": "Ecg",
+    "target-dir": "Magento2",
     "require": {
         "php": ">=5.4.0"
     }

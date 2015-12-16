@@ -1,6 +1,6 @@
 <?php
 
-class Ecg_Sniffs_M2_PluginSniff implements PHP_CodeSniffer_Sniff
+class Magento2_Sniffs_M2_PluginSniff implements PHP_CodeSniffer_Sniff
 {
 
     const PARAMS_QTY = 2;

@@ -1,6 +1,6 @@
 <?php
 
-class Ecg_Sniffs_M2_ThisInTemplateSniff implements PHP_CodeSniffer_Sniff
+class Magento2_Sniffs_M2_ThisInTemplateSniff implements PHP_CodeSniffer_Sniff
 {
 
     protected $message = 'Usage of $this in template files is deprecated.';
