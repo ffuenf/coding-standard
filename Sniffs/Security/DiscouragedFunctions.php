@@ -26,5 +26,6 @@ class Ecg_Sniffs_Security_DiscouragedFunctionSniff extends Generic_Sniffs_PHP_Fo
      */
     public $forbiddenFunctions = array(
         '^pathinfo$' => null,
+        '^call_user_func_array$' => null,
     );
 }

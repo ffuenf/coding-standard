@@ -10,7 +10,6 @@ class Ecg_Sniffs_Security_ForbiddenFunctionSniff extends Generic_Sniffs_PHP_Forb
         '^bindtextdomain$' => null,
         '^bz.*$' => null,
         '^call_user_func$' => null,
-        '^call_user_func_array$' => null,
         '^chdir$' => null,
         '^chgrp$' => null,
         '^chmod$' => null,

@@ -39,3 +39,7 @@ Checkout the `php-5.3-compatible` branch to get the PHP 5.3 version.
 #Contribution
 
 Please feel free to contribute new sniffs or any fixes or improvements for the existing ones.
+
+# Adjustments by ffuenf
+
+* move `call_user_func_array`from ForbiddenFunctionSniff to DiscouragedFunctions
